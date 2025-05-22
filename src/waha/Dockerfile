@@ -1,0 +1,7 @@
+FROM devlikeapro/waha:latest
+
+ENV WHATSAPP_HOOK_URL=http://172.17.0.1:5678/webhook/webhook
+
+ENV WHATSAPP_DEFAULT_ENGINE=GOWS
+
+ENV WHATSAPP_HOOK_EVENTS=message
