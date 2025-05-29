@@ -1,17 +1,6 @@
 version: '3.8'
 
 services:
-  redis:
-    build: './src/redis'
-    ports:
-      - '6379:6379'
-
-  postgres:
-    build: './src/postgres'
-    ports:
-      - '5432:5432'
-    volumes:
-      - 'pgdata:/var/lib/postgresql/data'
 
   waha:
     build: './src/waha'
@@ -33,7 +22,6 @@ services:
       - 'host.docker.internal:host-gateway'
 
 volumes:
-  pgdata:
   waha_sessions:
   waha_media:
   n8n_data:
