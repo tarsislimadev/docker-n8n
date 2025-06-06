@@ -6,8 +6,8 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - './waha_sessions:/app/.sessions'
-      - './waha_media:/app/.media'
+      - 'waha_sessions:/app/.sessions'
+      - 'waha_media:/app/.media'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
   n8n:
@@ -17,11 +17,17 @@ services:
       N8N_HOST: 'n8n.tarsislima.com'
       GENERIC_TIMEZONE: 'America/Sao_Paulo'
       N8N_LOG_LEVEL: 'debug'
-      N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: true
+      N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: 'true'
     volumes:
-      - './n8n_data:/home/node/.n8n'
+      - 'n8n_data:/home/node/.n8n'
     ports:
       - '80:5678'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
+
+volumes:
+  pgdata:
+  waha_sessions:
+  waha_media:
+  n8n_data:
 
